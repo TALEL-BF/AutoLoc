@@ -26,4 +26,17 @@ public class Reservation {
 
     @Enumerated(EnumType.STRING)
     private StatutReservation statut;
+
+    // Reservation.java
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+
+    @ManyToOne
+    @JoinColumn(name = "vehicule_id")
+    private Vehicule vehicule;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contrat_id")
+    private Contrat contrat;
 }
